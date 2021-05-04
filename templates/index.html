@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DC-GAN for MNIST</title>
+</head>
+  
+<body>
+<p>&nbsp;</p>
+<h1 style="text-align: center;"><strong>MNIST image generation with DC-GAN</strong></h1>
+<p>&nbsp;Input a number from 0 ~ 9</p>
+<form action="/generate" method="POST">
+	<input name="text" type="text" /> 
+  	<input type="submit" value="Generate" />
+	{% if error %}
+		<span style="color: #ff0000;">{{ error }} </span>
+	{% endif %}
+</form>
+<p>&nbsp;</p>
+	<!-- <img src="{{ url_for('static', filename=filename) }}"> -->
+	{% if img_data %}
+		<img id="picture" src="data:image/jpeg;base64,{{ img_data }}">
+	{% endif %}
+</body>
+</html>
